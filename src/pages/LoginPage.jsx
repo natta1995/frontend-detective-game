@@ -40,7 +40,7 @@ function LoginPage() {
       <div className="overlay" />
 
       <div className="login-card">
-        <h2>Logga in</h2>
+        <h2>Login</h2>
         <p className="subtitle">Consulting Detective</p>
 
         <input
@@ -57,11 +57,11 @@ function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button>Logga in</button>
+        <button>Login</button>
 
-        <p>Har du inget konto?</p>
+        <p>Have you no account?</p>
         <Link to="/register" className="secondary">
-        Registrera dig
+        Register
            </Link>
       </div>
     </div>
