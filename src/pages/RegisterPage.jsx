@@ -1,4 +1,7 @@
 import { useState } from "react";
+import loginImg from "../Img/LoginImg.png"
+import "./LoginPage.css"
+import { Link } from "react-router-dom";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
@@ -32,34 +35,50 @@ function RegisterPage() {
   }
 
   return (
-    <form onSubmit={handleRegister}>
-      <h1>Registrera</h1>
+ <div
+      className="login-page"
+      style={{ backgroundImage: `url(${loginImg})` }}
+    >
+      <div className="overlay" />
 
-      <input
-        type="text"
-        placeholder="Användarnamn"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+      <form className="login-card" onSubmit={handleRegister}>
+        <h2>Registrera</h2>
 
-      <input
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        <p className="subtitle">Consulting Detective</p>
 
-      <input
-        type="password"
-        placeholder="Lösenord"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <input
+          type="text"
+          placeholder="Användarnamn"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
-      <button type="submit">Registrera</button>
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      {message && <p>{message}</p>}
-    </form>
+        <input
+          type="password"
+          placeholder="Lösenord"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button type="submit">Registrera</button>
+
+        {message && <p>{message}</p>}
+
+        <p>Har du redan ett konto?</p>
+           <Link to="/" className="secondary">
+        Logga in
+           </Link>
+      </form>
+      
+    </div>
+
   );
 }
 

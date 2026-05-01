@@ -1,4 +1,7 @@
 import { useState } from "react";
+import loginImg from "../Img/LoginImg.png"
+import "./LoginPage.css"
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -31,27 +34,37 @@ function LoginPage() {
   }
 
   return (
-    <form onSubmit={handleLogin}>
-      <h1>Logga in</h1>
+     <div className="login-page"
+     style={{ backgroundImage: `url(${loginImg})` }}
+     >
+      <div className="overlay" />
 
-      <input
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+      <div className="login-card">
+        <h2>Logga in</h2>
+        <p className="subtitle">Consulting Detective</p>
 
-      <input
-        type="password"
-        placeholder="Lösenord"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <button type="submit">Logga in</button>
+        <input
+          type="password"
+          placeholder="Lösenord"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      {message && <p>{message}</p>}
-    </form>
+        <button>Logga in</button>
+
+        <p>Har du inget konto?</p>
+        <Link to="/register" className="secondary">
+        Registrera dig
+           </Link>
+      </div>
+    </div>
   );
 }
 
