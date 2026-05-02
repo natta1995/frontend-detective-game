@@ -1,6 +1,6 @@
 import { useState } from "react";
 import loginImg from "../Img/LoginImg.png"
-import "./LoginPage.css"
+import "./Page.css"
 import { Link } from "react-router-dom";
 
 function RegisterPage() {

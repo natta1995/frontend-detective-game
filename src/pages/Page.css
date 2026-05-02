@@ -134,3 +134,49 @@ button {
   background: rgba(212, 175, 55, 0.5);
   margin: 8px auto 0;
 }
+
+.room-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.case-item {
+  padding: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.case-item:hover {
+  background: rgba(212, 175, 55, 0.18);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.paper-file {
+  background: rgba(238, 218, 174, 0.92);
+  color: #2b1b10;
+  padding: 24px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  font-family: "Playfair Display", serif;
+}
+
+.paper-file h2 {
+  color: #3a2414;
+  text-shadow: none;
+}
+
+.paper-file button {
+  margin-top: 10px;
+}
