@@ -44,9 +44,7 @@ function MyCases({ onClose, onOpenCase }) {
             className="case-item"
             onClick={() => onOpenCase(quest)}
           >
-            <h3>{quest.status}</h3>
-            <p>{quest.description}</p>
-            <p>Hello</p>
+            <h3>{quest.titel}</h3>
           </div>
         ))}
       </div>
