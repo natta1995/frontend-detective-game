@@ -7,7 +7,7 @@ import "./Page.css";
 
 function StudyPage() {
   const [view, setView] = useState("menu");
-  const [selectedQuest, setSelectedQuest] = useState(null);
+  const [selectedQuestId, setSelectedQuestId] = useState(null);
 
   return (
     <div
@@ -43,19 +43,19 @@ function StudyPage() {
         {view === "myCases" && (
           <MyCases
             onClose={() => setView("menu")}
-            onOpenCase={(quest) => {
-              setSelectedQuest(quest);
+            onOpenCase={(questId) => {
+              setSelectedQuestId(questId);
               setView("openCase");
             }}
           />
         )}
 
         {view === "openCase" && (
-          <OpenCaseFile
-            quest={selectedQuest}
-            onClose={() => setView("myCases")}
-          />
-        )}
+        <OpenCaseFile
+          questId={selectedQuestId}
+          onClose={() => setView("myCases")}
+        />
+      )}
       </div>
     </div>
   );
