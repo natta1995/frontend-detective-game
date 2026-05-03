@@ -25,7 +25,7 @@ function MyCases({ onClose, onOpenCase }) {
 
     fetchQuests();
   }, []);
-  console.log(quests);
+
 
   return (
     <>
@@ -40,7 +40,7 @@ function MyCases({ onClose, onOpenCase }) {
           <div
             key={quest.questId}
             className="case-item"
-            onClick={() => onOpenCase(quest)}
+            onClick={() => onOpenCase(quest.questId)}
           >
             <h3>{quest.title}</h3>
           
