@@ -8,14 +8,11 @@ function MyCases({ onClose, onOpenCase }) {
     async function fetchQuests() {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(
-        "https://localhost:7060/api/quests/mine",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch("https://localhost:7060/api/quests/mine", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (!response.ok) {
         setMessage("You could not retrieve your investigations.");
@@ -28,6 +25,7 @@ function MyCases({ onClose, onOpenCase }) {
 
     fetchQuests();
   }, []);
+  console.log(quests);
 
   return (
     <>
@@ -40,11 +38,12 @@ function MyCases({ onClose, onOpenCase }) {
       <div className="case-list">
         {quests.map((quest) => (
           <div
-            key={quest.id}
+            key={quest.questId}
             className="case-item"
             onClick={() => onOpenCase(quest)}
           >
-            <h3>{quest.titel}</h3>
+            <h3>{quest.title}</h3>
+          
           </div>
         ))}
       </div>
