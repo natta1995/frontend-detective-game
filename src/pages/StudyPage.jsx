@@ -35,6 +35,10 @@ function StudyPage() {
               My Investigations
             </button>
 
+              <Link to="/study/butler" className="secondary">
+                Call the Butler
+              </Link>
+
             <Link to="/hall" className="secondary">
                 Return to Entrance Hall
             </Link>
@@ -61,6 +65,10 @@ function StudyPage() {
           onClose={() => setView("myCases")}
         />
       )}
+      {view === "butlerView" && (
+        <ButlerView onClose={() => setView("menu")} />
+      )}
+       
       </div>
     </div>
   );

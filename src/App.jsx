@@ -3,6 +3,8 @@ import LoginPage from "./pages/LoginPage.jsx"
 import RegisterPage from "./pages/RegisterPage.jsx"
 import HallPage from "./pages/HallPage.jsx"
 import StudyPage from "./pages/StudyPage";
+import ButlerStudyPage from "./pages/ButlerStudyPage.jsx";
+
 
 function App() {
   return (
@@ -11,7 +13,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/hall" element={<HallPage />} />
       <Route path="/study" element={<StudyPage />} />
-      <Route path="/desk" element={<h1>Desk</h1>} />
+      <Route path="/study/butler" element={<ButlerStudyPage />} />
     </Routes>
   )
 }
