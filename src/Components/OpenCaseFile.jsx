@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ScotlandyardLogo from "../Img/ScotlandyardImg.png";
 
 function OpenCaseFile({ questId, onClose }) {
   const [selectedSuspect, setSelectedSuspect] = useState(null);
@@ -72,16 +73,14 @@ function OpenCaseFile({ questId, onClose }) {
     {
       left: (
         <>
-          <h2>{caseFile.title}</h2>
-          <p>{caseFile.shortSummary}</p>
         </>
       ),
       right: (
         <>
-          <p>
-            A formal case file prepared for investigation. All details contained
-            within must be examined carefully.
-          </p>
+          <h1>Scotland Yard</h1>
+          <img src={ScotlandyardLogo} alt="Scotland Yard Logo" className="logo" />
+          <h4>{caseFile.title}</h4>
+          <p>{caseFile.shortSummary}</p>
         </>
       ),
     },
@@ -106,32 +105,99 @@ function OpenCaseFile({ questId, onClose }) {
           <p>{caseFile.weapon}</p>
         </>
       ),
-    },
+    },     
     {
+  left: (
+    <>
+      <div className="suspect-card">
+        <img
+          src={`/img/cases/${suspects[0]?.suspectImg}`}
+          className="suspect-img"
+          alt={suspects[0]?.name}
+        />
+
+        <div>
+          <h4>{suspects[0]?.name}</h4>
+          <h4>{suspects[0]?.role}</h4>
+          <p>{suspects[0]?.statement}</p>
+        </div>
+      </div>
+    </>
+  ),
+
+  right: (
+    <>
+      <div className="suspect-card">
+        <img
+          src={`/img/cases/${suspects[1]?.suspectImg}`}
+          className="suspect-img"
+          alt={suspects[1]?.name}
+        />
+
+        <div>
+          <h4>{suspects[1]?.name}</h4>
+           <h4>{suspects[1]?.role}</h4>
+          <p>{suspects[1]?.statement}</p>
+        </div>
+      </div>
+    </>
+  ),
+},
+
+{
+  left: (
+    <>
+      <div className="suspect-card">
+        <img
+          src={`/img/cases/${suspects[2]?.suspectImg}`}
+          className="suspect-img"
+          alt={suspects[2]?.name}
+        />
+
+        <div>
+          <h4>{suspects[2]?.name}</h4>
+          <h4>{suspects[2]?.role}</h4>
+          <p>{suspects[2]?.statement}</p>
+        </div>
+      </div>
+    </>
+  ),
+
+  right: (
+    <>
+      <div className="suspect-card">
+        <img
+          src={`/img/cases/${suspects[3]?.suspectImg}`}
+          className="suspect-img"
+          alt={suspects[3]?.name}
+        />
+
+        <div>
+          <h4>{suspects[3]?.name}</h4>
+          <h4>{suspects[3]?.role}</h4>
+          <p>{suspects[3]?.statement}</p>
+        </div>
+      </div>
+    </>
+  ),
+},
+
+{
       left: (
-        <>
-          {suspects.slice(0, 2).map((s, i) => (
-            <div key={i} className="suspect-card">
-              <img src={`/img/cases/${s.suspectImg}`} className="suspect-img" alt={s.name} />
-              <div>
-                <h4>{s.name}</h4>
-                <p>{s.statement}</p>
-              </div>
-            </div>
+       <>
+       <p>Förhörsledarens anteckningar</p>
+        {suspects.map((s, index) => (
+            <label key={index}>
+             <p>{s.name} - {s.role}</p>
+             <p>{s.inInvestigatorsNotes}</p> 
+
+            </label>
           ))}
-        </>
+       </>
       ),
       right: (
         <>
-          {suspects.slice(2, 4).map((s, i) => (
-            <div key={i} className="suspect-card">
-              <img src={`/img/cases/${s.suspectImg}`} className="suspect-img" alt={s.name} />
-              <div>
-                <h4>{s.name}</h4>
-                <p>{s.statement}</p>
-              </div>
-            </div>
-          ))}
+        <img src={`/img/cases/${caseFile.clueImg}`} className="case-photo"alt="Clue?" />
         </>
       ),
     },
@@ -149,7 +215,9 @@ function OpenCaseFile({ questId, onClose }) {
                 checked={selectedSuspect === index}
                 onChange={() => setSelectedSuspect(index)}
               />
-              {s.name}
+            {s.name} - {s.role}
+              
+            
             </label>
           ))}
 
@@ -170,6 +238,7 @@ function OpenCaseFile({ questId, onClose }) {
   ];
   
   console.log("Case file data:", caseFile);
+  console.log("Suspects data:", suspects);
 
   return (
     <div className="book-wrapper">
