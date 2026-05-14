@@ -398,3 +398,21 @@ button {
   font-weight: bold;
   transition: all 0.2s ease;
 }
+
+.logo {
+  width: 90%;
+
+  opacity: 0.98;
+
+  filter:
+    
+    contrast(120%)
+    brightness(70%)
+    blur(0.3px);
+
+  transform: rotate(-8deg);
+
+  mix-blend-mode: multiply;
+
+  pointer-events: none;
+}
