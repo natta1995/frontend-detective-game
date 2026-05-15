@@ -44,7 +44,7 @@ function LoginPage() {
       <div className="overlay" />
 
       <form className="login-card" onSubmit={handleLogin}>
-        <h2>Login</h2>
+        <h2>Logga in</h2>
         <p className="subtitle">Consulting Detective</p>
 
         <input
@@ -61,12 +61,12 @@ function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Login</button>
+        <button type="submit">Logga in</button>
 
-        <p>No account yet?</p>
+        <p>Har du inget konto ännu?</p>
 
         <Link to="/register" className="secondary">
-          Register
+          Registrera dig här
         </Link>
 
         {message && <p>{message}</p>}

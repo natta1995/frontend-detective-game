@@ -18,29 +18,27 @@ function StudyPage() {
       <div className="overlay" />
 
       <div className={view === "openCase" ? "study-card-wide" : "login-card"}>
-        <h2>The Study</h2>
+        <h2>Kontoret</h2>
         <p className="subtitle">Consulting Detective</p>
 
         {view === "menu" && (
           <>
-            <p className="room-text">
-              The fire crackles softly. Case files rest upon your desk.
-            </p>
+        
 
             <button onClick={() => setView("caseFiles")}>
-              View Case Files
+              Se alla mordfall
             </button>
 
             <button onClick={() => setView("myCases")}>
-              My Investigations
+              Mina utredningar
             </button>
 
-              <Link to="/study/butler" className="secondary">
+              {/* <Link to="/study/butler" className="secondary">
                 Call the Butler
-              </Link>
+              </Link> */}
 
             <Link to="/hall" className="secondary">
-                Return to Entrance Hall
+                Gå tillbaka till hallen
             </Link>
               </>
         )}

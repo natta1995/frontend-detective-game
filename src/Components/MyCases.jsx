@@ -29,9 +29,6 @@ function MyCases({ onClose, onOpenCase }) {
 
   return (
     <>
-      <p className="room-text">
-        Your active investigations are kept in a worn leather folder.
-      </p>
 
       {message && <p>{message}</p>}
 
@@ -48,7 +45,7 @@ function MyCases({ onClose, onOpenCase }) {
         ))}
       </div>
 
-      <button onClick={onClose}>Close Folder</button>
+      <button onClick={onClose}>Stäng</button>
     </>
   );
 }

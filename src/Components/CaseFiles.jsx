@@ -60,13 +60,13 @@ function CaseFiles({ onClose }) {
             <p>{c.shortSummary}</p>
 
             <button onClick={() => acceptCase(c.id)}>
-              Take on this Case
+              Ta dig ann fallet
             </button>
           </div>
         ))}
       </div>
 
-      <button onClick={onClose}>Close Drawer</button>
+      <button onClick={onClose}>Stäng</button>
     </>
   );
 }

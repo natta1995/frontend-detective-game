@@ -204,8 +204,8 @@ function OpenCaseFile({ questId, onClose }) {
     {
       left: (
         <>
-          <h3>Your Decision</h3>
-          <p>Who do you accuse?</p>
+          <h3>Nu är det upp till dig</h3>
+          <p>Vem väljer du att anklaga?</p>
 
           {suspects.map((s, index) => (
             <label key={index} className="accuse-option">
@@ -221,7 +221,7 @@ function OpenCaseFile({ questId, onClose }) {
             </label>
           ))}
 
-          <button onClick={accuseSuspect}>Accuse a Suspect</button>
+          <button onClick={accuseSuspect}>Anklaga en misstänkt</button>
         </>
       ),
       right: (
@@ -250,7 +250,7 @@ function OpenCaseFile({ questId, onClose }) {
 
           <div className="file-navigation">
             <button className="open-case-file-button" onClick={onClose}>
-              Close folder
+              Stäng
             </button>
 
             <button
@@ -258,7 +258,7 @@ function OpenCaseFile({ questId, onClose }) {
               onClick={() => setPage(page - 1)}
               disabled={page === 0}
             >
-              Previous
+              Föregående
             </button>
 
             <span>
@@ -270,7 +270,7 @@ function OpenCaseFile({ questId, onClose }) {
               onClick={() => setPage(page + 1)}
               disabled={page === pages.length - 1}
             >
-              Next
+              Nästa
             </button>
           </div>
         </div>
