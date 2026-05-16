@@ -81,7 +81,7 @@ function CaseFiles({ onClose }) {
 
       {message && <p className="message">{message}</p>}
 
-      <div className="case-list">
+      <div className="case-list-allcases">
         {cases.map((c) => (
           <div
             key={c.id}

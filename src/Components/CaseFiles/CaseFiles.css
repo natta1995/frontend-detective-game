@@ -3,7 +3,7 @@
   max-width: 100%;
 
   max-height: 650px;
-
+  
   display: flex;
   flex-direction: column;
 }
@@ -13,50 +13,50 @@
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .case-files-header h2 {
   color: #d4af37;
 
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 1px;
 
   text-shadow:
     0 0 10px rgba(212, 175, 55, 0.25);
 }
 
-.case-list {
+.case-list-allcases {
   display: grid;
 
   grid-template-columns: repeat(2, 1fr);
-
-  gap: 20px;
+  
+  gap: 32px;
 
   width: 100%;
 
   overflow-y: auto;
 
-  padding-right: 8px;
+  padding: 10px 20px 10px 10px;
 }
 
-.case-list::-webkit-scrollbar {
+.case-list-allcases::-webkit-scrollbar {
   width: 8px;
 }
 
-.case-list::-webkit-scrollbar-track {
+.case-list-allcases::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
 
   border-radius: 999px;
 }
 
-.case-list::-webkit-scrollbar-thumb {
+.case-list-allcases::-webkit-scrollbar-thumb {
   background: rgba(212, 175, 55, 0.45);
 
   border-radius: 999px;
 }
 
-.case-list::-webkit-scrollbar-thumb:hover {
+.case-list-allcases::-webkit-scrollbar-thumb:hover {
   background: rgba(212, 175, 55, 0.7);
 }
 
@@ -80,17 +80,18 @@
 
   cursor: pointer;
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-
   box-shadow:
     0 8px 18px rgba(0, 0, 0, 0.4);
 
   position: relative;
 
   overflow: hidden;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
 }
 
 .case-item::before {
@@ -111,15 +112,19 @@
 }
 
 .case-item:hover {
-  transform:
-    translateY(-5px)
-    scale(1.015);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(45, 35, 10, 0.95),
+      rgba(25, 18, 5, 0.98)
+    );
 
-  border-color: rgba(212, 175, 55, 0.75);
+  border-color: goldenrod;
 
   box-shadow:
-    0 0 18px rgba(212, 175, 55, 0.16),
-    0 12px 24px rgba(0, 0, 0, 0.5);
+    0 0 18px rgba(212, 175, 55, 0.18);
+
+  color: #f3d27a;
 }
 
 .case-item-content {
@@ -183,8 +188,6 @@
   background: goldenrod;
 
   color: black;
-
-  transform: translateY(-2px);
 }
 
 .message {

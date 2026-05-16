@@ -16,7 +16,7 @@ function StudyPage() {
 
       <div
         className={
-          view === "openCase" || view === "caseFiles"
+          view === "openCase" || view === "caseFiles" || view === "myCases"
             ? "study-card-wide"
             : "study-card"
         }
