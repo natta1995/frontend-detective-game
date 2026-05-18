@@ -96,20 +96,23 @@ function OpenCaseFile({ questId, onClose }) {
     },
     {
       left: (
+        <>
         <img
           src={`/img/cases/${caseFile.victimImg}`}
           className="case-photo clickable-image"
           alt="Victim"
           onClick={() => setSelectedImg(`/img/cases/${caseFile.victimImg}`)}
         />
+        <p className="cops-handmade-notes">Victim: {caseFile.victim}</p>
+       </> 
       ),
       right: (
         <>
-          <h4>{caseFile.title}</h4>
-          <p>Victim: {caseFile.victim}</p>
-          <p>Short Summary: {caseFile.shortSummary}</p>
-          <p>Crime Scene: {caseFile.place}</p>
-          <p>Cause of Death: {caseFile.weapon}</p>
+          <h4 className="cops-handmade-notes" >{caseFile.title}</h4>
+    
+          
+          <p className="cops-handmade-notes">Crime Scene: {caseFile.place}</p>
+          <p className="cops-handmade-notes">Dödsorsak: {caseFile.weapon}</p>
         </>
       ),
     },
@@ -124,8 +127,8 @@ function OpenCaseFile({ questId, onClose }) {
       ),
       right: (
         <>
-          <h3>Crime Scene</h3>
-          <p>{caseFile.crimeSceneDescription}</p>
+          <h3 className="cops-handmade-notes">Brottsplats undersökning:</h3>
+          <p className="cops-handmade-notes">{caseFile.crimeSceneDescription}</p>
        
         </>
       ),
@@ -213,10 +216,10 @@ function OpenCaseFile({ questId, onClose }) {
     {
       left: (
         <>
-          <p className="cops-handmade-notes">Investigators' Notes :</p>
+          <p className="cops-handmade-notes">Förhörsledarens anteckningar:</p>
           {suspects.map((s, index) => (
             <label key={index}>
-              <p className="cops-handmade-notes">
+              <p style={{fontWeight: "bold"}} className="cops-handmade-notes">
                 {s.name} - {s.role}
               </p>
               <p className="cops-handmade-notes">
@@ -243,28 +246,34 @@ function OpenCaseFile({ questId, onClose }) {
           <h3>Your Decision</h3>
           <p>Who do you accuse?</p>
 
-          {suspects.map((s, index) => (
-            <label key={index} className="accuse-option">
-              <input
-                type="radio"
-                name="suspect"
-                checked={selectedSuspect === index}
-                onChange={() => setSelectedSuspect(index)}
-              />
-              {s.name} - {s.role}
-            </label>
-          ))}
+        {suspects.map((s, index) => (
+  <label key={index} className="accuse-option">
+    <input
+      type="radio"
+      name="suspect"
+      checked={selectedSuspect === index}
+      onChange={() => setSelectedSuspect(index)}
+    />
 
-          <button onClick={accuseSuspect}>Accuse a Suspect</button>
+    <span>
+      {s.name} - {s.role}
+    </span>
+  </label>
+))}
+
+          <button className="accuse-button" onClick={accuseSuspect}>
+            Accuse a Suspect
+          </button>
+          
+        {resultMessage && <p>{resultMessage}</p>}
+          {theEndText && <p>{theEndText}</p>}
+
         </>
       ),
       right: (
         <>
-          {resultMessage && <p>{resultMessage}</p>}
-          {theEndText && <p>{theEndText}</p>}
-          <button className="secondary" onClick={onClose}>
-            Think Further
-          </button>
+    
+         
         </>
       ),
     },
