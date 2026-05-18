@@ -66,16 +66,13 @@ function OpenCaseFile({ questId, onClose }) {
 
     setResultMessage(
       data.result === "Solved"
-        ? "You were correct. Scotland Yard extends its gratitude for your remarkable investigative efforts. The case is now considered solved."
-        : "An unfortunate accusation. Scotland Yard will assume control of the investigation from this point onward. Better fortune may await you in the next case.",
+        ? "Enastående arbete! Du har löst fallet och fångat mördaren. Scotland Yard och hela London är tacksamma för din insatts."
+        : "Åh nej, det verkar som du har anklagat fel person. Scotland Yard får ta över fallet. Bättre lycka nästa gång.",
     );
   };
 
   const pages = [
     {
-      left: <>
-      
-      </>,
       right: (
         <>
            <div className="top-secret-stamp">
@@ -95,6 +92,27 @@ function OpenCaseFile({ questId, onClose }) {
       ),
     },
     {
+            left: (
+        <>
+          <h1>Brev till utredaren</h1>
+          <p>Detta är ett av de fall som Scotland Yard har på sitt bord.</p>
+          <p>Ett mord den lokola polisen inte lyckats lösa.</p>
+          <p>Det är nu ditt jobb att gå igenom allt vi har i fallet.</p>
+          <p>Både bilder och text KAN innehålla ledtrådar.</p>
+          <p>Igenom att klicka på bilderna kan se närmera på bilderna.</p>
+          <p>I slutet av foldern kan du anklaga en misstänkt. Men kom ihåg! </p>
+          <p> Du kan bara anklaga en person och du har bara ett försök! </p>
+          <p>Så välj noga!</p>
+          <p>Lycka till!</p>
+       </> 
+      ),
+      right: (
+        <>
+          
+        </>
+      ),
+    },
+    {
       left: (
         <>
         <img
@@ -103,15 +121,13 @@ function OpenCaseFile({ questId, onClose }) {
           alt="Victim"
           onClick={() => setSelectedImg(`/img/cases/${caseFile.victimImg}`)}
         />
-        <p className="cops-handmade-notes">Victim: {caseFile.victim}</p>
+        <p className="cops-handmade-notes">Offret: {caseFile.victim}</p>
        </> 
       ),
       right: (
         <>
           <h4 className="cops-handmade-notes" >{caseFile.title}</h4>
-    
-          
-          <p className="cops-handmade-notes">Crime Scene: {caseFile.place}</p>
+          <p className="cops-handmade-notes">Brottsplatsundersökning: {caseFile.place}</p>
           <p className="cops-handmade-notes">Dödsorsak: {caseFile.weapon}</p>
         </>
       ),
@@ -241,35 +257,44 @@ function OpenCaseFile({ questId, onClose }) {
       ),
     },
     {
-      left: (
-        <>
-          <h3>Your Decision</h3>
-          <p>Who do you accuse?</p>
+    left: (
+  <>
+    {!theEndText ? (
+      <>
+        <h3>Nu är det upp till dig, vem vill du anklaga?</h3>
+        <p>Kom ihåg att du bara kan anklaga en person!</p>
 
         {suspects.map((s, index) => (
-  <label key={index} className="accuse-option">
-    <input
-      type="radio"
-      name="suspect"
-      checked={selectedSuspect === index}
-      onChange={() => setSelectedSuspect(index)}
-    />
+          <label key={index} className="accuse-option">
+            <input
+              type="radio"
+              name="suspect"
+              checked={selectedSuspect === index}
+              onChange={() => setSelectedSuspect(index)}
+            />
 
-    <span>
-      {s.name} - {s.role}
-    </span>
-  </label>
-))}
+            <span>
+              {s.name} - {s.role}
+            </span>
+          </label>
+        ))}
 
-          <button className="accuse-button" onClick={accuseSuspect}>
-            Accuse a Suspect
-          </button>
-          
+        <button
+          className="accuse-button"
+          onClick={accuseSuspect}
+        >
+          Accuse a Suspect
+        </button>
+      </>
+    ) : (
+      <>
         {resultMessage && <p>{resultMessage}</p>}
-          {theEndText && <p>{theEndText}</p>}
 
-        </>
-      ),
+        {theEndText && <p>{theEndText}</p>}
+      </>
+    )}
+  </>
+    ),
       right: (
         <>
     
