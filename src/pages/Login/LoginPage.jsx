@@ -35,6 +35,21 @@ function LoginPage() {
     navigate("/hall");
   }
 
+  function handleDemoLogin() {
+  localStorage.setItem("isDemoMode", "true");
+
+  localStorage.setItem(
+    "user",
+    JSON.stringify({
+      id: "demo-user",
+      username: "Demo Detective",
+      role: "User"
+    })
+  );
+
+  navigate("/hall");
+}
+
   return (
     <div className="login-page" style={{ backgroundImage: `url(${bgImg})` }}>
       <div className="overlay" />
@@ -58,6 +73,10 @@ function LoginPage() {
         />
 
         <button type="submit">Logga in</button>
+
+        <button type="button" onClick={handleDemoLogin}>
+          Testa demo
+        </button>
 
         <p>Har du inget konto ännu? <Link to="/register" className="link" >
           Registrera dig här
